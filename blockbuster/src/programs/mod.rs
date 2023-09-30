@@ -4,6 +4,7 @@ use candy_machine::CandyMachineAccountData;
 use candy_machine_core::CandyMachineCoreAccountData;
 use token_account::TokenProgramAccount;
 use token_metadata::TokenMetadataAccountState;
+use sac_stake_account::StakeProgramAccount;
 
 pub mod bubblegum;
 pub mod candy_guard;
@@ -11,6 +12,7 @@ pub mod candy_machine;
 pub mod candy_machine_core;
 pub mod token_account;
 pub mod token_metadata;
+pub mod sac_stake_account;
 
 pub enum ProgramParseResult<'a> {
     Bubblegum(&'a BubblegumInstruction),
@@ -19,5 +21,6 @@ pub enum ProgramParseResult<'a> {
     CandyGuard(&'a CandyGuardAccountData),
     CandyMachine(&'a CandyMachineAccountData),
     CandyMachineCore(&'a CandyMachineCoreAccountData),
-    Unknown,
+    StakeProgramAccount(&'a StakeProgramAccount),
+    Unknown
 }

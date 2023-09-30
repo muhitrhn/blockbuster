@@ -634,6 +634,7 @@ name = "blockbuster"
 version = "0.8.0"
 dependencies = [
  "anchor-lang",
+ "arrayref",
  "async-trait",
  "borsh 0.10.3",
  "bs58 0.4.0",
