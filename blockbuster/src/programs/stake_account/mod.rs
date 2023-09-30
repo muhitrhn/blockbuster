@@ -29,9 +29,9 @@ impl ParseResult for StakeProgramAccount {
     }
 }
 
-pub struct SacStakeAccountParser;
+pub struct StakeAccountParser;
 
-impl ProgramParser for SacStakeAccountParser {
+impl ProgramParser for StakeAccountParser {
     fn key(&self) -> Pubkey {
         stake_program_id()
     }
