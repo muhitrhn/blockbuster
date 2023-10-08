@@ -2,6 +2,7 @@ use crate::{
     error::BlockbusterError,
     programs::{ProgramParseResult, stake_account::state::SacStakeAccount}, program_handler::{ParseResult, ProgramParser}
 };
+use borsh::BorshDeserialize;
 use plerkle_serialization::AccountInfo;
 use solana_sdk::{pubkey::Pubkey, pubkeys, borsh::try_from_slice_unchecked};
 
@@ -57,7 +58,7 @@ impl ProgramParser for StakeAccountParser {
 
         let account_type = match account_data.len() {
             300 => {
-                let stake_account = try_from_slice_unchecked(&account_data[8..])?;
+                let stake_account = SacStakeAccount::deserialize(&mut &account_data[..])?;
                 StakeProgramAccount::SacStakeAccount(stake_account)
             }
             _ => {

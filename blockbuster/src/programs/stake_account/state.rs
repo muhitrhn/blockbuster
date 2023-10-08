@@ -3,7 +3,7 @@ use solana_sdk::{pubkey::Pubkey};
 
 #[derive(BorshSerialize, BorshDeserialize, PartialEq, Debug, Clone)]
 pub struct SacStakeAccount {
-    pub pubkey: Pubkey,
+    pub descriminator: u64,
     pub authority: Pubkey,
     pub token: Pubkey,
     pub start_staking: i64,
